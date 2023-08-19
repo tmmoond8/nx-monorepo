@@ -15,12 +15,12 @@ export const App = () => {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
-            name="Home"
+            name="HomeScreen"
             component={HomeScreen}
             options={{ title: 'List' }}
           />
           <Stack.Screen
-            name="Detail"
+            name="DetailScreen"
             component={DetailScreen}
             options={{ title: 'Detail' }}
           />

@@ -1,7 +1,11 @@
 import { useMemo, useRef } from 'react';
-import { list } from '../lib/bid';
+import { list, one } from '../lib/bid';
 import { Product } from '@nx-react-code-sharing/shared-types';
-import { useInfiniteQuery } from '@tanstack/react-query';
+import {
+  useInfiniteQuery,
+  useQuery,
+  UseQueryOptions,
+} from '@tanstack/react-query';
 import unionBy from 'lodash-es/unionBy';
 import throttle from 'lodash-es/throttle';
 
@@ -58,4 +62,18 @@ export const useBidList = () => {
     isEmpty: !isLoading && processedData.length === 0,
     loadMore: handleLoadMore,
   };
+};
+
+export const useBidItem = (
+  itemId: number,
+  options?: UseQueryOptions<Product, unknown, Product, (number | string)[]>
+) => {
+  return useQuery(
+    ['bid', itemId],
+    async () => {
+      const { data } = await one(itemId);
+      return data;
+    },
+    options
+  );
 };

@@ -16,12 +16,14 @@ import { ScreenWithNavigation } from '../types';
 
 import { Product } from '@nx-react-code-sharing/shared-types';
 
-export default function HomeScreen({ navigation }: ScreenWithNavigation) {
+export default function HomeScreen({
+  navigation,
+}: ScreenWithNavigation<'HomeScreen'>) {
   const { data, loadMore, isLoading } = apis.bid.useBidList();
   const loadMoreTriggerRef = React.useRef(loadMore);
   loadMoreTriggerRef.current = loadMore;
   const handleClickItem = (productId: number) => {
-    navigation.navigate('Detail', { productId });
+    navigation.navigate('DetailScreen', { productId });
   };
   const handleLoadMore = () => {
     loadMoreTriggerRef.current();
@@ -86,7 +88,7 @@ function GridView({
         </TouchableWithoutFeedback>
       )}
       onEndReached={handleLoadMore}
-      onEndReachedThreshold={0.3}
+      onEndReachedThreshold={1}
       ListFooterComponent={
         isLoading ? <ActivityIndicator size="large" color="#000" /> : null
       }
