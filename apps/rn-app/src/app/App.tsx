@@ -2,23 +2,31 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { HomeScreen, DetailScreen } from '../screens';
 
 const Stack = createNativeStackNavigator();
 
 export const App = () => {
+  const [queryClient] = React.useState(() => new QueryClient());
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Welcome' }}
-        />
-        <Stack.Screen name="Detail" component={DetailScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <QueryClientProvider client={queryClient}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: 'List' }}
+          />
+          <Stack.Screen
+            name="Detail"
+            component={DetailScreen}
+            options={{ title: 'Detail' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </QueryClientProvider>
   );
 };
 
