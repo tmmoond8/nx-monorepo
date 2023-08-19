@@ -16,6 +16,10 @@
     "immer": "*",
     "zustand": "*",
     "@storybook/addon-viewport": "*",
-    "metro-config": "*"
+    "metro-config": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "react-native-screens": "*",
+    "react-native-safe-area-context": "*"
   }
 }
