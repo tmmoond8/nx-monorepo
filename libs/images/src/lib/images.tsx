@@ -28,3 +28,11 @@ export const getImages = () => {
     iconImages: withPrefixPath(iconImageKeys, iconImages),
   };
 };
+
+export function s3Image(path: string, options?: { width: number }) {
+  const imageOptions = options?.width ? `?w=${options.width}` : '';
+  const assetPath = path.startsWith('https')
+    ? path
+    : `https://image.collexx.io/${path}`;
+  return `${assetPath}${imageOptions}`;
+}

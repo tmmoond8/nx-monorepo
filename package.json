@@ -10,7 +10,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "start": "nx serve",
+    "start": "nx serve --port=3000",
     "build": "nx build",
     "build:affected:all": "nx affected --target=build --all",
     "eslint": "nx run-many --target=lint --all",
@@ -38,11 +38,13 @@
   },
   "dependencies": {
     "@nrwl/next": "15.4.2",
+    "@tanstack/react-query": "^4.32.6",
     "axios": "^0.27.2",
     "core-js": "^3.29.1",
     "express": "^4.17.3",
     "hoist-non-react-statics": "^3.3.2",
     "immer": "^9.0.12",
+    "lodash-es": "^4.17.21",
     "next": "13.0.0",
     "qs": "^6.11.0",
     "react": "18.2.0",
@@ -92,6 +94,7 @@
     "@testing-library/react": "13.4.0",
     "@testing-library/react-native": "11.5.0",
     "@types/jest": "28.1.8",
+    "@types/lodash-es": "^4.17.8",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",

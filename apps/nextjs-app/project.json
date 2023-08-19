@@ -23,7 +23,8 @@
       "executor": "@nrwl/next:server",
       "options": {
         "buildTarget": "nextjs-app:build",
-        "dev": true
+        "dev": true,
+        "port": 3000
       },
       "configurations": {
         "production": {
