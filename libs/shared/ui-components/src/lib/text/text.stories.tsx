@@ -7,7 +7,7 @@ export default {
 } as Meta;
 
 const Template: Story<TextProps> = (args) => (
-  <RNText {...args}>Hello World</RNText>
+  <RNText {...args}>2222222 Hello World</RNText>
 );
 
 export const Primary = Template.bind({});
