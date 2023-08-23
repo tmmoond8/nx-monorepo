@@ -4,7 +4,6 @@ import { View, ViewProps, ViewStyle } from 'react-native';
 
 export interface BoxProps extends ViewProps, ViewStyle {
   style?: ViewStyle;
-  gap?: number;
 }
 
 export const Box = React.memo(({ children, ...props }: BoxProps) => {
@@ -14,7 +13,7 @@ export const Box = React.memo(({ children, ...props }: BoxProps) => {
       ...styleProps,
       ...(canSpread(props.style) ? props.style : {}),
     }),
-    [styleProps]
+    [props.style, styleProps]
   );
 
   return (
@@ -93,6 +92,9 @@ const useFilterProps = (props: BoxProps) => {
       height,
       justifyContent,
       left,
+      gap,
+      rowGap,
+      columnGap,
       margin,
       marginBottom,
       marginEnd,
@@ -184,6 +186,9 @@ const useFilterProps = (props: BoxProps) => {
         height,
         justifyContent,
         left,
+        gap,
+        rowGap,
+        columnGap,
         margin,
         marginBottom,
         marginEnd,
